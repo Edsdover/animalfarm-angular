@@ -1,0 +1,10 @@
+
+.row
+  h3 {{dog.name}}
+  .col-xs-4
+    img.img-responsive(ng-src='{{dog.photo}}')
+  .col-xs-4
+    h5 Statistics
+      ul
+        li Age: {{dog.age}}
+        li Gender: {{dog.gender}}

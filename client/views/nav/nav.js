@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('animalfarm')
 .controller('NavCtrl', function($rootScope, $scope, $state, User){
 
   $scope.afAuth.$onAuth(function(data){
@@ -16,4 +16,18 @@ angular.module('poseidon')
   $scope.logout = function(){
     User.logout();
   };
+  function getDisplayName(data){
+  switch(data.provider){
+    case 'password':
+      return data.password.email;
+    case 'twitter':
+      return data.twitter.displayName;
+    case 'github':
+      return data.github.displayName;
+    case 'google':
+      return data.google.displayName;
+    case 'facebook':
+      return data.facebook.displayName;
+    }
+  }
 });
