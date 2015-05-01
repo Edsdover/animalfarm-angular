@@ -1,6 +1,6 @@
 h3 Dogs
 .row
-  .col-xs-6.col-xs-offset-2
+  .col-xs-8.col-xs-offset-2
     table.table.table-striped.table-hover
       thead
         tr
@@ -8,10 +8,12 @@ h3 Dogs
           th Age:
           th Gender:
           th Photo:
+          th Edit
       tbody
         tr(ng-repeat='dog in dogs')
           td: a(ui-sref='dogs.show({dogId:dog._id})') {{dog.name}}
           td {{dog.age}}
           td {{dog.gender}}
           td: img#dogListPic.img-responsive.img-thumbnail(ng-src='{{dog.photo}}')
+          td: button#editButton.btn.btn-sm.btn-warning(ui-sref='dogs.edit({dogId:dog._id})') Edit Info
           td: button#deleteButton.btn.btn-sm.btn-danger(ng-click='deleteDog(dog)') Return to Pound

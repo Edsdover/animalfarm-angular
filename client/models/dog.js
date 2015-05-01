@@ -28,6 +28,9 @@ angular.module('animalfarm')
     //this is the payload becasue we are in an instance function
     return $http.post(nodeUrl + '/dogs', this);
   };
+  Dog.put = function(dog){
+    return $http.put(nodeUrl + '/dogs/' + dog._id, dog);
+  };
 
     return Dog;
   });

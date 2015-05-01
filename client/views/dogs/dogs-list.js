@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('animalfarm')
-.controller('DogsListCtrl', function($scope, Dog){
+.controller('DogsListCtrl', function($scope, Dog, $state){
   //we want all the dogs so we want to use class method
 
   //calls class function in the factory
@@ -9,6 +9,13 @@ angular.module('animalfarm')
   .then(function(response){
     $scope.dogs = response.data.dogs;
   });
+
+  $scope.editDog = function(obj){
+    Dog.editDog(obj._id)
+    .then(function(response){
+      $state.go('dogs.edit', response);
+    });
+  };
 
   $scope.deleteDog = function(obj){
     Dog.deleteDog(obj._id)
